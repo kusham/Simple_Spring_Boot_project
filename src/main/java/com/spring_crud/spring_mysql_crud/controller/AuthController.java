@@ -3,6 +3,7 @@ package com.spring_crud.spring_mysql_crud.controller;
 import com.spring_crud.spring_mysql_crud.entity.User;
 import com.spring_crud.spring_mysql_crud.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -25,8 +26,9 @@ public class AuthController {
         return modelAndView;
     }
 
-    @PostMapping("/user")
-    public String userRegister(@RequestBody User user) {
-        return user.toString();
+    @RequestMapping(value = "/userRegister", method = RequestMethod.POST)
+    public String userRegister(@ModelAttribute("user") User user) {
+        authService.save(user);
+        return "login.html";
     }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Register</title>
@@ -30,7 +30,7 @@
     </div>
 
     <div class="form-container sign-up-container">
-        <form action="/user" method="post" object="${user}">
+        <form action="userRegister" modelAttribute="user" method="POST">
             <h1>Create Account</h1>
             <div class="social-container">
                 <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -38,10 +38,10 @@
                 <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
             </div>
             <span>or use your email for registration</span>
-            <input type="text" field="*{first_name}" placeholder="First Name"/>
-            <input type="text" field="*{last_name}" placeholder="Last Name"/>
-            <input type="email" field="*{email}" placeholder="Email"/>
-            <input type="password" field="*{password}" placeholder="Password"/>
+            <input type="text" name="firstName" placeholder="First Name"/>
+            <input type="text" name="lastName" placeholder="Last Name"/>
+            <input type="email" name="email"  placeholder="Email"/>
+            <input type="password" name="password" placeholder="Password"/>
             <button type="submit">Sign Up</button>
         </form>
     </div>

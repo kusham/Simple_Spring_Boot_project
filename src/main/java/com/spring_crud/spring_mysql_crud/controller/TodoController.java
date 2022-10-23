@@ -14,6 +14,7 @@ public class TodoController {
     @Autowired
     private ProductService service;
 
+
     @RequestMapping("/todo-list")
     public ModelAndView showTodoList() {
         ModelAndView modelAndView = new ModelAndView();
@@ -21,29 +22,31 @@ public class TodoController {
         return modelAndView;
     }
 
-    @RequestMapping("/todo-update")
+    @RequestMapping("/update")
     public ModelAndView updateTodoList() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("todo-list.html");
+        modelAndView.setViewName("todo-update.html");
         return modelAndView;
     }
 
-    @PostMapping("/product")
-    public void add(@RequestBody Product product){
-        service.save(product);
-    }
 
-    @GetMapping("/products")
-    public List<Product> getAllProducts(){
-        return service.getAll();
-    }
-    @GetMapping("/products/{id}")
-    public Product getProduct(@PathVariable int id){
-        return service.getProduct(id);
-    }
 
-    @DeleteMapping("/products/{id}")
-    public void delete(@PathVariable int id){
-        service.delete(id);
-    }
+//    @PostMapping("/product")
+//    public void add(@RequestBody Product product){
+//        service.save(product);
+//    }
+//
+//    @GetMapping("/products")
+//    public List<Product> getAllProducts(){
+//        return service.getAll();
+//    }
+//    @GetMapping("/products/{id}")
+//    public Product getProduct(@PathVariable int id){
+//        return service.getProduct(id);
+//    }
+//
+//    @DeleteMapping("/products/{id}")
+//    public void delete(@PathVariable int id){
+//        service.delete(id);
+//    }
 }
